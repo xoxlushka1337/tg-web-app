@@ -13,7 +13,7 @@ bot.on('message', async msg => {
   if (text === '/start') {
     await bot.sendMessage(chatId, 'Нажмите кнопку ниже', {
       reply_markup: {
-        inline_keyboard: [[{ text: 'Заполоните форму', web_app: { url: webAppUrl } }]]
+        inline_keyboard: [[{ text: 'Заполоните форму', web_app: { url: webAppUrl + '/form' } }]]
       }
     })
   }

@@ -1,15 +1,11 @@
 import { useEffect } from 'react'
 import { useTelegram } from '../../hooks/useTelegram'
 
-export const Button = () => {
+export const ProductList = () => {
   const { onToggle, tg } = useTelegram()
   useEffect(() => {
     tg.ready()
   }, [])
 
-  return (
-    <div>
-      <button onClick={onToggle}>toggle</button>
-    </div>
-  )
+  return <div>ProductList</div>
 }
