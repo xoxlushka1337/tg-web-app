@@ -38,7 +38,7 @@ export const Form = () => {
     tg.onEvent('mainButtonClicked', onSendData)
 
     return () => tg.offEvent('mainButtonClicked', onSendData)
-  }, [name, country])
+  }, [])
 
   return (
     <div className='form-container'>
