@@ -18,6 +18,14 @@ bot.on('message', async msg => {
     })
   }
 
-  // send a message to the chat acknowledging receipt of their message
-  bot.sendMessage(chatId, 'Received рррр your message')
+  if (msg.web_app_data?.data) {
+    try {
+      const data = JSON.parse(msg.web_app_data?.data)
+
+      await bot.sendMessage(chatId, 'Име: ' + data?.name)
+      await bot.sendMessage(chatId, 'Ваш город: ' + data?.country)
+    } catch {
+      console.log(e)
+    }
+  }
 })
