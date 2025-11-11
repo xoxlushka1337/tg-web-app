@@ -14,11 +14,12 @@ export const Form = () => {
     const data = {
       country,
       street,
-      name
+      name,
+      type
     }
 
     tg.sendData(JSON.stringify(data))
-  }, [country, street, name])
+  }, [country, street, name, type])
 
   useEffect(() => {
     tg.MainButton.setParams({
@@ -38,7 +39,7 @@ export const Form = () => {
     tg.onEvent('mainButtonClicked', onSendData)
 
     return () => tg.offEvent('mainButtonClicked', onSendData)
-  }, [])
+  }, [onSendData])
 
   return (
     <div className='form-container'>
