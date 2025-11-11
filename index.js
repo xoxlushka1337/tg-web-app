@@ -11,9 +11,17 @@ bot.on('message', async msg => {
   const text = msg.text
 
   if (text === '/start') {
+    await bot.sendMessage(chatId, 'Нажмите для просмотра формы', {
+      reply_markup: {
+        keyboard: [[{ text: 'Заполните форму', web_app: { url: webAppUrl + '/form' } }]],
+        resize_keyboard: true, // чтобы клавиатура была компактной
+        one_time_keyboard: false
+      }
+    })
+
     await bot.sendMessage(chatId, 'Нажмите кнопку ниже', {
       reply_markup: {
-        inline_keyboard: [[{ text: 'Заполоните форму', web_app: { url: webAppUrl + '/form' } }]]
+        inline_keyboard: [[{ text: 'Заполоните форму', web_app: { url: webAppUrl } }]]
       }
     })
   }
@@ -21,6 +29,7 @@ bot.on('message', async msg => {
   if (msg?.web_app_data?.data) {
     try {
       const data = JSON.parse(msg?.web_app_data?.data)
+      console.log(data)
 
       await bot.sendMessage(chatId, 'Име: ' + data?.name)
       await bot.sendMessage(chatId, 'Ваш город: ' + data?.country)
