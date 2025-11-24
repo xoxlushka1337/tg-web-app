@@ -22,17 +22,21 @@ export const ProductList = () => {
     } else {
       setAddItems(prev => [...prev, product])
     }
+  }
 
+  useEffect(() => {
     if (addItems.length === 0) {
       tg.MainButton.hide()
     } else {
       tg.MainButton.show()
 
       tg.MainButton.setParams({
-        text: `Купить`
+        text: `Купить ${addItems.reduce((acc, item) => {
+          return (acc += item.price)
+        }, 0)}`
       })
     }
-  }
+  }, [addItems])
 
   console.log(addItems)
 
