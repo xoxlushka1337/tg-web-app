@@ -29,9 +29,7 @@ export const ProductList = () => {
       tg.MainButton.show()
 
       tg.MainButton.setParams({
-        text: `Купить ${addItems.reduce((acc, item) => {
-          return (acc += item.price)
-        }, 0)}`
+        text: `Купить`
       })
     }
   }
