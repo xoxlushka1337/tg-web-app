@@ -1,0 +1,24 @@
+.product-card {
+  background: var(--tg-theme-bg-color, #f7f7f7);
+  padding: 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  width: 300px;
+}
+
+.product-card .img {
+  background: var(--tg-theme-secondary-bg-color, #e5e5e5);
+  height: 140px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+.product-card button {
+  padding: 10px 14px;
+  width: 100%;
+  background: var(--tg-theme-button-color, #3c8aff);
+  color: var(--tg-theme-button-text-color, #fff);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
