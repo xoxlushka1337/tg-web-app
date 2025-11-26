@@ -2,6 +2,11 @@ import { useEffect, useState } from 'react'
 import { useTelegram } from '../../hooks/useTelegram'
 import { ProductItem } from '../ProductItem/ProductItem'
 
+const getTotalPrice = addItems =>
+  addItems.reduce((acc, item) => {
+    return (acc += item.price)
+  }, 0)
+
 export const ProductList = () => {
   const products = [
     { title: '111111111', description: 'qqqqqqqqq qqqqqqqqqqqqqqqq', price: 111, id: '1' },
@@ -22,21 +27,17 @@ export const ProductList = () => {
     } else {
       setAddItems(prev => [...prev, product])
     }
-  }
 
-  useEffect(() => {
     if (addItems.length === 0) {
       tg.MainButton.hide()
     } else {
       tg.MainButton.show()
 
       tg.MainButton.setParams({
-        text: `Купить ${addItems.reduce((acc, item) => {
-          return (acc += item.price)
-        }, 0)}`
+        text: `Купить ${getTotalPrice(addItems)}`
       })
     }
-  }, [addItems])
+  }
 
   return (
     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px', justifyContent: 'center' }}>
