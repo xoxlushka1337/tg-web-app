@@ -10,7 +10,7 @@ export const ProductList = () => {
     { title: '4444444444444444444', description: 'rrrrrrrrrr rrr r  r r r r r', price: 4444, id: '4' }
   ]
 
-  const tg = useTelegram()
+  const { tg } = useTelegram()
 
   const [addItems, setAddItems] = useState([])
 
@@ -24,19 +24,19 @@ export const ProductList = () => {
     }
   }
 
-  // useEffect(() => {
-  //   if (addItems.length === 0) {
-  //     tg.MainButton.hide()
-  //   } else {
-  //     tg.MainButton.show()
+  useEffect(() => {
+    if (addItems.length === 0) {
+      tg.MainButton.hide()
+    } else {
+      tg.MainButton.show()
 
-  //     tg.MainButton.setParams({
-  //       text: `Купить ${addItems.reduce((acc, item) => {
-  //         return (acc += item.price)
-  //       }, 0)}`
-  //     })
-  //   }
-  // }, [addItems])
+      tg.MainButton.setParams({
+        text: `Купить ${addItems.reduce((acc, item) => {
+          return (acc += item.price)
+        }, 0)}`
+      })
+    }
+  }, [addItems])
 
   return (
     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px', justifyContent: 'center' }}>
