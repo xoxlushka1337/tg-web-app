@@ -24,21 +24,19 @@ export const ProductList = () => {
     }
   }
 
-  useEffect(() => {
-    if (addItems.length === 0) {
-      tg.MainButton.hide()
-    } else {
-      tg.MainButton.show()
+  // useEffect(() => {
+  //   if (addItems.length === 0) {
+  //     tg.MainButton.hide()
+  //   } else {
+  //     tg.MainButton.show()
 
-      tg.MainButton.setParams({
-        text: `Купить ${addItems.reduce((acc, item) => {
-          return (acc += item.price)
-        }, 0)}`
-      })
-    }
-  }, [addItems])
-
-  console.log(addItems)
+  //     tg.MainButton.setParams({
+  //       text: `Купить ${addItems.reduce((acc, item) => {
+  //         return (acc += item.price)
+  //       }, 0)}`
+  //     })
+  //   }
+  // }, [addItems])
 
   return (
     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px', justifyContent: 'center' }}>
